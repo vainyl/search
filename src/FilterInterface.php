@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Vainyl\Search;
 
+use Vainyl\Core\ArrayInterface;
 use Vainyl\Core\NameableInterface;
 
 /**
@@ -19,7 +20,7 @@ use Vainyl\Core\NameableInterface;
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-interface FilterInterface extends NameableInterface
+interface FilterInterface extends ArrayInterface, NameableInterface
 {
 
 }
