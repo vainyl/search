@@ -1,4 +1,8 @@
 services:
-  index.storage:
+  search.index.storage:
     class: Vainyl\Search\Storage\IndexStorage
     arguments: ['@map.prototype']
+  search.index.composite:
+    class: Vainyl\Search\Composite\CompositeIndex
+    arguments: ['@search.index.storage']
+  search.index: '@search.index.composite'

@@ -29,12 +29,12 @@ class IndexCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (false === $container->hasDefinition('index.storage')) {
-            throw new MissingRequiredServiceException($container, 'index.storage');
+        if (false === $container->hasDefinition('search.index.storage')) {
+            throw new MissingRequiredServiceException($container, 'search.index.storage');
         }
 
-        $storageDefinition = $container->findDefinition('index.storage');
-        foreach ($container->findTaggedServiceIds('index') as $id => $tags) {
+        $storageDefinition = $container->findDefinition('search.index.storage');
+        foreach ($container->findTaggedServiceIds('search.index') as $id => $tags) {
             $storageDefinition
                 ->addMethodCall('addIndex', new Reference($id));
         }
