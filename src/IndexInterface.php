@@ -22,11 +22,11 @@ use Vainyl\Core\IdentifiableInterface;
 interface IndexInterface extends IdentifiableInterface
 {
     /**
-     * @param IdentifiableInterface $identifiable
+     * @param SearchableInterface $searchable
      *
      * @return bool
      */
-    public function add(IdentifiableInterface $identifiable): bool;
+    public function add(SearchableInterface $searchable): bool;
 
     /**
      * @return bool
@@ -41,9 +41,9 @@ interface IndexInterface extends IdentifiableInterface
     /**
      * @param FilterInterface $filter
      *
-     * @return IdentifiableInterface
+     * @return SearchableInterface
      */
-    public function finOne(FilterInterface $filter): IdentifiableInterface;
+    public function finOne(FilterInterface $filter): SearchableInterface;
 
     /**
      * @param FilterInterface $filter
@@ -53,23 +53,23 @@ interface IndexInterface extends IdentifiableInterface
     public function find(FilterInterface $filter): array;
 
     /**
-     * @param IdentifiableInterface $identifiable
+     * @param SearchableInterface $searchable
      *
      * @return bool
      */
-    public function remove(IdentifiableInterface $identifiable): bool;
+    public function remove(SearchableInterface $searchable): bool;
 
     /**
-     * @param IdentifiableInterface $identifiable
+     * @param SearchableInterface $searchable
      *
      * @return bool
      */
-    public function supports(IdentifiableInterface $identifiable): bool;
+    public function supports(SearchableInterface $searchable): bool;
 
     /**
-     * @param IdentifiableInterface $identifiable
+     * @param SearchableInterface $searchable
      *
      * @return bool
      */
-    public function update(IdentifiableInterface $identifiable): bool;
+    public function update(SearchableInterface $searchable): bool;
 }
