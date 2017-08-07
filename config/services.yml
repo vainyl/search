@@ -1,0 +1,4 @@
+services:
+  index.storage:
+    class: Vainyl\Search\Storage\IndexStorage
+    arguments: ['@map.prototype']

@@ -10,15 +10,19 @@
  */
 declare(strict_types=1);
 
-namespace Vainyl\Search;
+namespace Vainyl\Search\Exception;
 
-use Vainyl\Core\NameableInterface;
+use Vainyl\Search\IndexInterface;
 
 /**
- * Interface SearchableInterface
+ * Interface IndexExceptionInterface
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-interface SearchableInterface extends NameableInterface
+interface IndexExceptionInterface extends \Throwable
 {
+    /**
+     * @return IndexInterface
+     */
+    public function getIndex() : IndexInterface;
 }

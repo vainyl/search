@@ -12,21 +12,21 @@ declare(strict_types=1);
 
 namespace Vainyl\Search;
 
-use Vainyl\Core\IdentifiableInterface;
+use Vainyl\Core\NameableInterface;
 
 /**
  * Interface IndexInterface
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-interface IndexInterface extends IdentifiableInterface
+interface IndexInterface extends NameableInterface
 {
     /**
-     * @param SearchableInterface $searchable
+     * @param SearchableInterface $object
      *
      * @return bool
      */
-    public function add(SearchableInterface $searchable): bool;
+    public function add(SearchableInterface $object): bool;
 
     /**
      * @return bool
@@ -43,7 +43,7 @@ interface IndexInterface extends IdentifiableInterface
      *
      * @return SearchableInterface
      */
-    public function finOne(FilterInterface $filter): SearchableInterface;
+    public function findOne(FilterInterface $filter): SearchableInterface;
 
     /**
      * @param FilterInterface $filter
@@ -53,23 +53,23 @@ interface IndexInterface extends IdentifiableInterface
     public function find(FilterInterface $filter): array;
 
     /**
-     * @param SearchableInterface $searchable
+     * @param SearchableInterface $object
      *
      * @return bool
      */
-    public function remove(SearchableInterface $searchable): bool;
+    public function remove(SearchableInterface $object): bool;
 
     /**
-     * @param SearchableInterface $searchable
+     * @param string $name
      *
      * @return bool
      */
-    public function supports(SearchableInterface $searchable): bool;
+    public function supports(string $name): bool;
 
     /**
-     * @param SearchableInterface $searchable
+     * @param SearchableInterface $object
      *
      * @return bool
      */
-    public function update(SearchableInterface $searchable): bool;
+    public function update(SearchableInterface $object): bool;
 }
