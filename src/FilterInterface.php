@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace Vainyl\Search;
 
-use Vainyl\Core\IdentifiableInterface;
+use Vainyl\Core\NameableInterface;
 
 /**
  * Interface FilterInterface
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-interface FilterInterface extends IdentifiableInterface
+interface FilterInterface extends NameableInterface
 {
 }
