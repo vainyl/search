@@ -65,4 +65,11 @@ interface IndexInterface extends IdentifiableInterface
      * @return bool
      */
     public function supports(IdentifiableInterface $identifiable): bool;
+
+    /**
+     * @param IdentifiableInterface $identifiable
+     *
+     * @return bool
+     */
+    public function update(IdentifiableInterface $identifiable): bool;
 }
