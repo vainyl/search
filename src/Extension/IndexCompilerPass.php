@@ -36,7 +36,7 @@ class IndexCompilerPass implements CompilerPassInterface
         $storageDefinition = $container->findDefinition('search.index.storage');
         foreach ($container->findTaggedServiceIds('search.index') as $id => $tags) {
             $storageDefinition
-                ->addMethodCall('addIndex', new Reference($id));
+                ->addMethodCall('addIndex', [new Reference($id)]);
         }
     }
 }
