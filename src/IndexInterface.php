@@ -22,6 +22,23 @@ use Vainyl\Core\IdentifiableInterface;
 interface IndexInterface extends IdentifiableInterface
 {
     /**
+     * @param IdentifiableInterface $identifiable
+     *
+     * @return bool
+     */
+    public function add(IdentifiableInterface $identifiable): bool;
+
+    /**
+     * @return bool
+     */
+    public function clear(): bool;
+
+    /**
+     * @return bool
+     */
+    public function create(): bool;
+
+    /**
      * @param FilterInterface $filter
      *
      * @return IdentifiableInterface
@@ -34,4 +51,18 @@ interface IndexInterface extends IdentifiableInterface
      * @return array
      */
     public function find(FilterInterface $filter): array;
+
+    /**
+     * @param IdentifiableInterface $identifiable
+     *
+     * @return bool
+     */
+    public function remove(IdentifiableInterface $identifiable): bool;
+
+    /**
+     * @param IdentifiableInterface $identifiable
+     *
+     * @return bool
+     */
+    public function supports(IdentifiableInterface $identifiable): bool;
 }
