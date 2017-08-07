@@ -95,7 +95,7 @@ class CompositeIndex extends AbstractIdentifiable implements IndexInterface
     /**
      * @inheritDoc
      */
-    public function findOne(FilterInterface $filter): SearchableInterface
+    public function findOne(FilterInterface $filter): ?SearchableInterface
     {
         if (false === $this->supports($filter->getName())) {
             throw new UnsupportedIndexException($this, $filter->getName());

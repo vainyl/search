@@ -41,9 +41,9 @@ interface IndexInterface extends NameableInterface
     /**
      * @param FilterInterface $filter
      *
-     * @return SearchableInterface
+     * @return null|SearchableInterface
      */
-    public function findOne(FilterInterface $filter): SearchableInterface;
+    public function findOne(FilterInterface $filter): ?SearchableInterface;
 
     /**
      * @param FilterInterface $filter

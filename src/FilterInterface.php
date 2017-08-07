@@ -21,4 +21,5 @@ use Vainyl\Core\NameableInterface;
  */
 interface FilterInterface extends NameableInterface
 {
+
 }

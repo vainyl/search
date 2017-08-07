@@ -6,3 +6,7 @@ services:
     class: Vainyl\Search\Composite\CompositeIndex
     arguments: ['@search.index.storage']
   search.index: '@search.index.composite'
+  search.index.abstract:
+    abstract: true
+    class: Vainyl\Search\AbstractIndex
+    arguments: ['@domain.storage']
