@@ -39,11 +39,9 @@ interface IndexInterface extends NameableInterface
     public function create(): bool;
 
     /**
-     * @param FilterInterface $filter
-     *
-     * @return null|SearchableInterface
+     * @return bool
      */
-    public function findOne(FilterInterface $filter): ?SearchableInterface;
+    public function drop(): bool;
 
     /**
      * @param FilterInterface $filter
@@ -51,6 +49,13 @@ interface IndexInterface extends NameableInterface
      * @return array
      */
     public function find(FilterInterface $filter): array;
+
+    /**
+     * @param FilterInterface $filter
+     *
+     * @return null|SearchableInterface
+     */
+    public function findOne(FilterInterface $filter): ?SearchableInterface;
 
     /**
      * @param SearchableInterface $object

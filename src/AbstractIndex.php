@@ -14,6 +14,7 @@ namespace Vainyl\Search;
 
 use Vainyl\Core\AbstractIdentifiable;
 use Vainyl\Domain\Storage\DomainStorageInterface;
+use Vainyl\Search\Exception\UnsupportedIndexException;
 
 /**
  * Class AbstractIndex
@@ -35,6 +36,25 @@ abstract class AbstractIndex extends AbstractIdentifiable implements IndexInterf
     }
 
     /**
+     * @inheritDoc
+     */
+    public function add(SearchableInterface $object): bool
+    {
+        if (false === $this->supports($object->getName())) {
+            throw new UnsupportedIndexException($this, $object->getName());
+        }
+
+        return $this->doAdd($object);
+    }
+
+    /**
+     * @param SearchableInterface $object
+     *
+     * @return bool
+     */
+    abstract public function doAdd(SearchableInterface $object): bool;
+
+    /**
      * @param FilterInterface $filter
      *
      * @return null|string
@@ -49,11 +69,25 @@ abstract class AbstractIndex extends AbstractIdentifiable implements IndexInterf
     abstract public function doFindIds(FilterInterface $filter): array;
 
     /**
+     * @param SearchableInterface $object
+     *
+     * @return bool
+     */
+    abstract public function doRemove(SearchableInterface $object): bool;
+
+    /**
      * @param string $name
      *
      * @return bool
      */
     abstract public function doSupports(string $name): bool;
+
+    /**
+     * @param SearchableInterface $object
+     *
+     * @return bool
+     */
+    abstract public function doUpdate(SearchableInterface $object): bool;
 
     /**
      * @inheritDoc
@@ -82,8 +116,32 @@ abstract class AbstractIndex extends AbstractIdentifiable implements IndexInterf
     /**
      * @inheritDoc
      */
+    public function remove(SearchableInterface $object): bool
+    {
+        if (false === $this->supports($object->getName())) {
+            throw new UnsupportedIndexException($this, $object->getName());
+        }
+
+        return $this->doRemove($object);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function supports(string $name): bool
     {
         return $this->doSupports($name) && $this->domainStorage->supports($name);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function update(SearchableInterface $object): bool
+    {
+        if (false === $this->supports($object->getName())) {
+            throw new UnsupportedIndexException($this, $object->getName());
+        }
+
+        return $this->doUpdate($object);
     }
 }

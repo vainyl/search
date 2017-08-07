@@ -83,6 +83,21 @@ class CompositeIndex extends AbstractIdentifiable implements IndexInterface
     /**
      * @inheritDoc
      */
+    public function drop(): bool
+    {
+        /**
+         * @var IndexInterface $index
+         */
+        foreach ($this->indexStorage->getIterator() as $index) {
+            $index->drop();
+        }
+
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function find(FilterInterface $filter): array
     {
         if (false === $this->supports($filter->getName())) {
