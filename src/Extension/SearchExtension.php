@@ -40,11 +40,11 @@ class SearchExtension extends AbstractFrameworkExtension
 
         $configuration = new SearchConfiguration();
         $searchConfig = $this->processConfiguration($configuration, $configs);
-        if (false === $searchConfig['enabled']) {
+        if (false === $searchConfig['index']['enabled']) {
             return $this;
         }
 
-        $container->setAlias('database.index', 'database.' . $searchConfig['database']);
+        $container->setAlias('database.index', 'database.' . $searchConfig['index']['database']);
 
         return $this;
     }
