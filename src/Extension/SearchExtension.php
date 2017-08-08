@@ -28,7 +28,7 @@ class SearchExtension extends AbstractFrameworkExtension
      */
     public function getCompilerPasses(): array
     {
-        return [new IndexCompilerPass()];
+        return [[new IndexCompilerPass()]];
     }
 
     /**
