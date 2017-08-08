@@ -32,7 +32,12 @@ class SearchConfiguration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->scalarNode('engine')->end()
+            ->arrayNode('index')
+                ->children()
+                    ->booleanNode('enabled')->defaultFalse()->end()
+                    ->scalarNode('engine')->defaultValue('elastic')->end()
+                    ->scalarNode('database')->defaultValue('index')->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

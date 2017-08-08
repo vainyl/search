@@ -38,13 +38,13 @@ class SearchExtension extends AbstractFrameworkExtension
     {
         parent::load($configs, $container);
 
-//        if (false === $container->hasDefinition('search.index.proxy')) {
-//            throw new MissingRequiredServiceException($container, 'search.index.proxy');
-//        }
-//
-//        $configuration = new SearchConfiguration();
-//        $searchConfig = $this->processConfiguration($configuration, $configs);
-//        $container->setAlias('search.index', 'search.index.' . $searchConfig['engine']);
+        $configuration = new SearchConfiguration();
+        $searchConfig = $this->processConfiguration($configuration, $configs);
+        if (false === $searchConfig['enabled']) {
+            return $this;
+        }
+
+        $container->setAlias('database.index', 'database.' . $searchConfig['database']);
 
         return $this;
     }
