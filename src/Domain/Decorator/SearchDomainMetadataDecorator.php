@@ -21,7 +21,7 @@ use Vainyl\Domain\Metadata\Decorator\AbstractDomainMetadataDecorator;
  */
 class SearchDomainMetadataDecorator extends AbstractDomainMetadataDecorator
 {
-    private $search;
+    private $search = [];
 
     /**
      * @return array
