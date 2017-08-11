@@ -24,6 +24,9 @@
             "url": "https://satis.vainyl.com:444"
         }
     ],
+    "suggest" : {
+        "vainyl/elastic-bridge" : "Search index mapping using Elastic database"
+    },
     "prefer-stable": true,
     "minimum-stability": "dev"
 }
