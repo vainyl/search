@@ -10,3 +10,7 @@ services:
     abstract: true
     class: Vainyl\Search\AbstractIndex
     arguments: ['@domain.storage']
+  domain.metadata.factory.search:
+    decorates: domain.metadata.factory
+    class: Vainyl\Search\Domain\Decorator\SearchDomainMetadataFactoryDecorator
+    arguments: ['@domain.metadata.factory.search.inner']

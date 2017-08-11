@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Vainyl\Search\Storage;
 
-use Vainyl\Core\Storage\StorageInterface;
+use Vainyl\Core\IdentifiableInterface;
 use Vainyl\Search\IndexInterface;
 
 /**
@@ -20,7 +20,7 @@ use Vainyl\Search\IndexInterface;
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-interface IndexStorageInterface extends StorageInterface
+interface IndexStorageInterface extends IdentifiableInterface
 {
     /**
      * @param IndexInterface $index
