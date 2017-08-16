@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Vainyl\Search\Exception;
 
+use Vainyl\Core\Exception\CoreExceptionInterface;
 use Vainyl\Search\IndexInterface;
 
 /**
@@ -19,7 +20,7 @@ use Vainyl\Search\IndexInterface;
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-interface IndexExceptionInterface extends \Throwable
+interface IndexExceptionInterface extends CoreExceptionInterface
 {
     /**
      * @return IndexInterface

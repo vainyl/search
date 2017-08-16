@@ -30,9 +30,9 @@ abstract class AbstractIndexException extends AbstractCoreException implements I
      * @param IndexInterface  $index
      * @param string          $message
      * @param int             $code
-     * @param \Exception|null $previous
+     * @param \Throwable|null $previous
      */
-    public function __construct(IndexInterface $index, string $message, int $code = 500, \Exception $previous = null)
+    public function __construct(IndexInterface $index, string $message, int $code = 500, \Throwable $previous = null)
     {
         $this->index = $index;
         parent::__construct($message, $code, $previous);
